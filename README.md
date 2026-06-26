@@ -53,15 +53,17 @@ yaml_text = spec.to_yaml()
 spec2 = Spec.from_yaml(yaml_text)
 assert spec2 == spec
 
-# Emit agent-ingestion artifacts
-agents_md = spec.to_agents_md()          # AGENTS.md content
-skill_md  = spec.emit_skill_file("spec_ingestion")  # Appendix B skill file
+# Emit agent-ingestion artifacts to disk
+with open("AGENTS.md", "w") as f:
+    f.write(spec.to_agents_md())
 
-# Derive pytest stubs from acceptance criteria
-test_files = spec.derive_tests(framework="pytest")
-for filename, source in test_files.items():
-    print(f"--- {filename} ---")
-    print(source)
+with open("SKILL.md", "w") as f:
+    f.write(spec.emit_skill_file("spec_ingestion"))
+
+# Derive pytest stubs from acceptance criteria and write to disk
+for filename, source in spec.derive_tests(framework="pytest").items():
+    with open(filename, "w") as f:
+        f.write(source)
 ```
 
 ## Core Concepts
