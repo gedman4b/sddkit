@@ -261,10 +261,12 @@ def test_emit_skill_file_returns_string() -> None:
     assert isinstance(_minimal_spec().emit_skill_file("spec_ingestion"), str)
 
 
-def test_stub_decompose_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.decompose()
+def test_decompose_raises_refinement_incomplete_without_refinement() -> None:
+    # U8 implemented: decompose() now raises RefinementIncompleteError (not NotImplementedError)
+    # when refinement is absent, which is the case for _minimal_spec().
+    from sddkit.models.errors import RefinementIncompleteError
+    with pytest.raises(RefinementIncompleteError):
+        _minimal_spec().decompose()
 
 
 def test_stub_derive_tests_raises_not_implemented() -> None:

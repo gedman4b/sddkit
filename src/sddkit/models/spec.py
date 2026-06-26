@@ -84,7 +84,9 @@ class Spec(BaseModel):
         return emit_skill_file(self, skill_type)
 
     def decompose(self) -> list[Unit]:
-        raise NotImplementedError("sddkit.decompose (U8) not yet implemented")
+        from sddkit.decompose import decompose_spec
+
+        return decompose_spec(self)
 
     def derive_tests(
         self, framework: Literal["pytest"] = "pytest"
