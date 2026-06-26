@@ -69,7 +69,9 @@ class Spec(BaseModel):
         return spec_from_markdown(text)
 
     def to_agents_md(self, identity: str | None = None) -> str:
-        raise NotImplementedError("sddkit.emit.agents (U6) not yet implemented")
+        from sddkit.emit.agents import emit_agents_md
+
+        return emit_agents_md(self, identity=identity)
 
     def emit_skill_file(
         self,
