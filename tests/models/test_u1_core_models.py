@@ -225,16 +225,15 @@ def test_spec_with_refinement() -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_stub_validate_operational_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.validate_operational()
+def test_validate_operational_returns_report() -> None:
+    # U5 implemented: validate_operational() now returns a ValidationReport.
+    from sddkit.models.components import ValidationReport
+    assert isinstance(_minimal_spec().validate_operational(), ValidationReport)
 
 
-def test_stub_is_operational_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.is_operational()
+def test_is_operational_returns_bool() -> None:
+    # U5 implemented: is_operational() now returns a bool.
+    assert isinstance(_minimal_spec().is_operational(), bool)
 
 
 def test_to_yaml_returns_string() -> None:
