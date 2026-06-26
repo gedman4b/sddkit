@@ -251,10 +251,9 @@ def test_to_markdown_returns_string() -> None:
     assert isinstance(_minimal_spec().to_markdown(), str)
 
 
-def test_stub_to_agents_md_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.to_agents_md()
+def test_to_agents_md_returns_string() -> None:
+    # U6 implemented: to_agents_md() now works rather than raising NotImplementedError.
+    assert isinstance(_minimal_spec().to_agents_md(), str)
 
 
 def test_stub_emit_skill_file_raises_not_implemented() -> None:
