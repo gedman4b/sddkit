@@ -7,6 +7,12 @@ from sddkit.models.components import (
     NonGoal,
     ValidationReport,
 )
+from sddkit.models.errors import (
+    OperationalityError,
+    RefinementIncompleteError,
+    SddkitError,
+    SerializationError,
+)
 from sddkit.models.refinement import EngineerRefinement, Unit
 from sddkit.models.spec import Spec
 
@@ -18,6 +24,10 @@ __all__ = [
     "Intent",
     "Issue",
     "NonGoal",
+    "OperationalityError",
+    "RefinementIncompleteError",
+    "SddkitError",
+    "SerializationError",
     "Spec",
     "Unit",
     "ValidationReport",
