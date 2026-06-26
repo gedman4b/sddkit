@@ -34,18 +34,26 @@ class Spec(BaseModel):
         raise NotImplementedError("sddkit.validation (U5) not yet implemented")
 
     def to_yaml(self) -> str:
-        raise NotImplementedError("sddkit.serialize.yaml_io (U3) not yet implemented")
+        from sddkit.serialize.yaml_io import spec_to_yaml
+
+        return spec_to_yaml(self)
 
     @classmethod
     def from_yaml(cls, text: str) -> "Spec":
-        raise NotImplementedError("sddkit.serialize.yaml_io (U3) not yet implemented")
+        from sddkit.serialize.yaml_io import spec_from_yaml
+
+        return spec_from_yaml(text)
 
     def to_json(self) -> str:
-        raise NotImplementedError("sddkit.serialize.json_io (U3) not yet implemented")
+        from sddkit.serialize.json_io import spec_to_json
+
+        return spec_to_json(self)
 
     @classmethod
     def from_json(cls, text: str) -> "Spec":
-        raise NotImplementedError("sddkit.serialize.json_io (U3) not yet implemented")
+        from sddkit.serialize.json_io import spec_from_json
+
+        return spec_from_json(text)
 
     def to_markdown(self) -> str:
         raise NotImplementedError("sddkit.serialize.markdown_io (U4) not yet implemented")

@@ -237,16 +237,14 @@ def test_stub_is_operational_raises_not_implemented() -> None:
         spec.is_operational()
 
 
-def test_stub_to_yaml_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.to_yaml()
+def test_to_yaml_returns_string() -> None:
+    # U3 implemented: to_yaml() now works rather than raising NotImplementedError.
+    assert isinstance(_minimal_spec().to_yaml(), str)
 
 
-def test_stub_to_json_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.to_json()
+def test_to_json_returns_string() -> None:
+    # U3 implemented: to_json() now works rather than raising NotImplementedError.
+    assert isinstance(_minimal_spec().to_json(), str)
 
 
 def test_stub_to_markdown_raises_not_implemented() -> None:
