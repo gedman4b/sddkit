@@ -8,14 +8,14 @@ if TYPE_CHECKING:
     from sddkit.models.spec import Spec
 
 
-def spec_to_json(spec: "Spec") -> str:
+def spec_to_json(spec: Spec) -> str:
     try:
         return spec.model_dump_json(indent=2)
     except Exception as exc:
         raise SerializationError(str(exc)) from exc
 
 
-def spec_from_json(text: str) -> "Spec":
+def spec_from_json(text: str) -> Spec:
     from sddkit.models.spec import Spec
 
     try:

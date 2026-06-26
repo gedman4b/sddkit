@@ -36,7 +36,7 @@ _TEMPLATE = _ENV.from_string(
 )
 
 
-def spec_to_markdown(spec: "Spec") -> str:
+def spec_to_markdown(spec: Spec) -> str:
     try:
         data: Any = spec.model_dump(mode="json")
         front_matter = yaml.dump(
@@ -54,7 +54,7 @@ def spec_to_markdown(spec: "Spec") -> str:
         raise SerializationError(str(exc)) from exc
 
 
-def spec_from_markdown(text: str) -> "Spec":
+def spec_from_markdown(text: str) -> Spec:
     from sddkit.models.spec import Spec
 
     match = _FRONT_MATTER_RE.match(text)

@@ -35,7 +35,7 @@ _PRINCIPLE_TITLES = [
 ]
 
 
-def emit_agents_md(spec: "Spec", identity: str | None = None) -> str:  # noqa: ARG001
+def emit_agents_md(spec: Spec, identity: str | None = None) -> str:  # noqa: ARG001
     template_dir = str(files("sddkit.emit").joinpath("templates"))
     env = Environment(
         loader=FileSystemLoader(template_dir),

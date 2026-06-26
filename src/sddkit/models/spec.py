@@ -41,7 +41,7 @@ class Spec(BaseModel):
         return spec_to_yaml(self)
 
     @classmethod
-    def from_yaml(cls, text: str) -> "Spec":
+    def from_yaml(cls, text: str) -> Spec:
         from sddkit.serialize.yaml_io import spec_from_yaml
 
         return spec_from_yaml(text)
@@ -52,7 +52,7 @@ class Spec(BaseModel):
         return spec_to_json(self)
 
     @classmethod
-    def from_json(cls, text: str) -> "Spec":
+    def from_json(cls, text: str) -> Spec:
         from sddkit.serialize.json_io import spec_from_json
 
         return spec_from_json(text)
@@ -63,7 +63,7 @@ class Spec(BaseModel):
         return spec_to_markdown(self)
 
     @classmethod
-    def from_markdown(cls, text: str) -> "Spec":
+    def from_markdown(cls, text: str) -> Spec:
         from sddkit.serialize.markdown_io import spec_from_markdown
 
         return spec_from_markdown(text)
