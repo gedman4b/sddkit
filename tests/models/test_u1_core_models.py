@@ -256,10 +256,9 @@ def test_to_agents_md_returns_string() -> None:
     assert isinstance(_minimal_spec().to_agents_md(), str)
 
 
-def test_stub_emit_skill_file_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.emit_skill_file("spec_ingestion")
+def test_emit_skill_file_returns_string() -> None:
+    # U7 implemented: emit_skill_file() now works rather than raising NotImplementedError.
+    assert isinstance(_minimal_spec().emit_skill_file("spec_ingestion"), str)
 
 
 def test_stub_decompose_raises_not_implemented() -> None:

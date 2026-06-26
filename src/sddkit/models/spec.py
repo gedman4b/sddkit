@@ -79,7 +79,9 @@ class Spec(BaseModel):
             "spec_ingestion", "constrained_execution", "self_verification"
         ],
     ) -> str:
-        raise NotImplementedError("sddkit.emit.skills (U7) not yet implemented")
+        from sddkit.emit.skills import emit_skill_file
+
+        return emit_skill_file(self, skill_type)
 
     def decompose(self) -> list[Unit]:
         raise NotImplementedError("sddkit.decompose (U8) not yet implemented")
