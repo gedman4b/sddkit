@@ -28,10 +28,12 @@ class Spec(BaseModel):
     refinement: EngineerRefinement | None = None
 
     def validate_operational(self) -> ValidationReport:
-        raise NotImplementedError("sddkit.validation (U5) not yet implemented")
+        from sddkit.validation.operational import validate_spec
+
+        return validate_spec(self)
 
     def is_operational(self) -> bool:
-        raise NotImplementedError("sddkit.validation (U5) not yet implemented")
+        return self.validate_operational().is_operational
 
     def to_yaml(self) -> str:
         from sddkit.serialize.yaml_io import spec_to_yaml
