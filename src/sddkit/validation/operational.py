@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     from sddkit.models.spec import Spec
 
 
-def validate_spec(spec: "Spec") -> ValidationReport:
+def validate_spec(spec: Spec) -> ValidationReport:
     issues: list[Issue] = []
 
     if not spec.name.strip():

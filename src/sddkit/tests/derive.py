@@ -75,11 +75,15 @@ def {{ ac | ac_function_name }}() -> None:
 
     Input pattern: {{ ac.input_pattern }}
     """
-    raise NotImplementedError("Test stub for {{ ac.id }} — implement against the acceptance criterion above.")
+    raise NotImplementedError(
+        "Test stub for {{ ac.id }} — implement against the acceptance criterion above."
+    )
 
 
 {% else %}
-@pytest.mark.skip(reason="{{ ac.id }} has no input_pattern; define a pattern in the spec before implementing.")
+@pytest.mark.skip(
+    reason="{{ ac.id }} has no input_pattern; define a pattern in the spec before implementing."
+)
 def {{ ac | ac_function_name }}_stub() -> None:
     """{{ ac.id }}: {{ ac.text }}"""
     pass
@@ -97,7 +101,7 @@ def {{ ac | ac_function_name }}_stub() -> None:
 
 
 def derive_tests_for_spec(
-    spec: "Spec",
+    spec: Spec,
     framework: Literal["pytest"] = "pytest",
 ) -> dict[str, str]:
     criteria = [

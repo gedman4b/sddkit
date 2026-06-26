@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     from sddkit.models.spec import Spec
 
 
-def decompose_spec(spec: "Spec") -> list[Unit]:
+def decompose_spec(spec: Spec) -> list[Unit]:
     if spec.refinement is None:
         raise RefinementIncompleteError(
             "decompose() requires engineer refinement. "

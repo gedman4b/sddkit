@@ -11,8 +11,8 @@ from sddkit.models.components import (
 from sddkit.models.errors import (
     OperationalityError,
     RefinementIncompleteError,
-    SerializationError,
     SddkitError,
+    SerializationError,
 )
 from sddkit.models.refinement import EngineerRefinement, Unit
 from sddkit.models.spec import Spec

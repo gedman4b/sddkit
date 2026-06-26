@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     from sddkit.models.spec import Spec
 
 
-def spec_to_yaml(spec: "Spec") -> str:
+def spec_to_yaml(spec: Spec) -> str:
     try:
         data: Any = spec.model_dump(mode="json")
         return yaml.dump(data, allow_unicode=True, sort_keys=False, default_flow_style=False)
@@ -18,7 +18,7 @@ def spec_to_yaml(spec: "Spec") -> str:
         raise SerializationError(str(exc)) from exc
 
 
-def spec_from_yaml(text: str) -> "Spec":
+def spec_from_yaml(text: str) -> Spec:
     from sddkit.models.spec import Spec
 
     try:

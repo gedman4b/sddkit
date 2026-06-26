@@ -42,7 +42,7 @@ SKILL_HEADINGS: dict[str, list[str]] = {
 
 
 def emit_skill_file(
-    spec: "Spec",
+    spec: Spec,
     skill_type: Literal["spec_ingestion", "constrained_execution", "self_verification"],
 ) -> str:
     template_dir = str(files("sddkit.emit").joinpath("templates"))
