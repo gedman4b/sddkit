@@ -56,11 +56,15 @@ class Spec(BaseModel):
         return spec_from_json(text)
 
     def to_markdown(self) -> str:
-        raise NotImplementedError("sddkit.serialize.markdown_io (U4) not yet implemented")
+        from sddkit.serialize.markdown_io import spec_to_markdown
+
+        return spec_to_markdown(self)
 
     @classmethod
     def from_markdown(cls, text: str) -> "Spec":
-        raise NotImplementedError("sddkit.serialize.markdown_io (U4) not yet implemented")
+        from sddkit.serialize.markdown_io import spec_from_markdown
+
+        return spec_from_markdown(text)
 
     def to_agents_md(self, identity: str | None = None) -> str:
         raise NotImplementedError("sddkit.emit.agents (U6) not yet implemented")

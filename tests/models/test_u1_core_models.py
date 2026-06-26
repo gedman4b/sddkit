@@ -247,10 +247,9 @@ def test_to_json_returns_string() -> None:
     assert isinstance(_minimal_spec().to_json(), str)
 
 
-def test_stub_to_markdown_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.to_markdown()
+def test_to_markdown_returns_string() -> None:
+    # U4 implemented: to_markdown() now works rather than raising NotImplementedError.
+    assert isinstance(_minimal_spec().to_markdown(), str)
 
 
 def test_stub_to_agents_md_raises_not_implemented() -> None:
