@@ -269,7 +269,6 @@ def test_decompose_raises_refinement_incomplete_without_refinement() -> None:
         _minimal_spec().decompose()
 
 
-def test_stub_derive_tests_raises_not_implemented() -> None:
-    spec = _minimal_spec()
-    with pytest.raises(NotImplementedError):
-        spec.derive_tests()
+def test_derive_tests_returns_dict() -> None:
+    # U9 implemented: derive_tests() now returns dict[str, str].
+    assert isinstance(_minimal_spec().derive_tests(), dict)
