@@ -91,4 +91,6 @@ class Spec(BaseModel):
     def derive_tests(
         self, framework: Literal["pytest"] = "pytest"
     ) -> dict[str, str]:
-        raise NotImplementedError("sddkit.tests.derive (U9) not yet implemented")
+        from sddkit.tests.derive import derive_tests_for_spec
+
+        return derive_tests_for_spec(self, framework=framework)
