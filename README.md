@@ -7,7 +7,7 @@ A Python library that makes Spec-Driven Development practical inside Python appl
 ## Installation
 
 ```bash
-pip install sddkit
+pip install specddkit
 ```
 
 Requires Python 3.10 or later.
